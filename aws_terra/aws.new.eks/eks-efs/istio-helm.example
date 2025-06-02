@@ -1,0 +1,38 @@
+resource "kubernetes_namespace" "istio-system" {
+  metadata {
+    annotations = {
+      name = "istio-namespace"
+    }
+
+    labels = {
+      mylabel = "label-value"
+    }
+
+    name = "istio-namespace"
+  }
+}
+
+resource "helm_release" "istio_base" {
+  name       = "istio-base"
+  chart      = "./manifests/charts/base"
+  namespace  = "istio-system"
+}
+
+resource "helm_release" "istiod" {
+  name       = "istiod"
+  chart      = "./manifests/charts/istio-control/istio-discovery"
+  namespace  = "istio-system"
+}
+
+resource "helm_release" "istio-ingress" {
+  name       = "istio-ingress"
+  chart      = "./manifests/charts/gateways/istio-ingress"
+  namespace  = "istio-system"
+}
+
+resource "helm_release" "istio-egress" {
+  name       = "istio-ingress"
+  chart      = "./manifests/charts/gateways/istio-egress"
+  namespace  = "istio-system"
+}
+

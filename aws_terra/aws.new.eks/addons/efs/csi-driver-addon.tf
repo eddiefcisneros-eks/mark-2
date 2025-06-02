@@ -1,0 +1,15 @@
+resource "aws_eks_addon" "efs_csi_driver" {
+  cluster_name             = aws_eks_cluster.eks.name
+  addon_name               = "aws-efs-csi-driver"
+  addon_version            = "v2.0.6-eksbuild.1"
+  service_account_role_arn = aws_iam_role.eks_efs_csi_driver.arn
+
+  depends_on = [ 
+    aws_eks_node_group.general
+   ]
+  tags = {
+    Name          = "${local.env}-${local.eks_name}-eks-cluster"
+    Creator       = data.external.aws_username.result["name"]
+    Creation_time = time_static.JCRS-e-time.rfc3339
+  }
+}
