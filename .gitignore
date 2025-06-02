@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+.tfstate
+.backup
+.tfstate.backup
+.terraform.exe
+.lck
+.terraform
+=======
 # Local .terraform directories
 .terraform/
 
@@ -35,3 +43,4 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+>>>>>>> 69103fd73370a844a346a1eca60ddb69dcb95225

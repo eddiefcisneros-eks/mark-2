@@ -1,0 +1,10 @@
+availability_zone = "us-east-1a"
+aws_region = "us-east-1"
+key_pair_name = "aws-ssh-key"
+file_name = "aws-ssh-key.pem"
+instance_type = "t2.micro"
+instance_tag = ["ssh", "ec2"]
+ec2_instance_name = "aws-ssh-ec2-instance"
+counter = 1
+cidr_block = "10.0.0.0/24"
+s3_bucket_name = "aws-ssh-ec2-state-bucket"
