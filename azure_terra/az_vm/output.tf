@@ -10,7 +10,7 @@ output "virtual_network_name" {
 
 output "subnet_name_1" {
   description = "The name of the created subnet 1."
-  value       = azurerm_subnet.my_terraform_subnet_1.name
+  value       = azurerm_subnet.public_subnet.name
 }
 
 output "subnet_name_2" {
